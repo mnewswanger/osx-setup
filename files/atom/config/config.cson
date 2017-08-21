@@ -1,0 +1,25 @@
+"*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#007997"
+      accentColor: "#b02300"
+      genAccent: true
+    tabs:
+      compactTabs: true
+      noTabMinWidth: true
+    ui: {}
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    fontFamily: "hack"
+    preferredLineLength: 160
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "e4fc291b-bc1a-4646-aafd-06bb5ef559fd"
+  welcome:
+      showOnStartup: false

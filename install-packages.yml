@@ -1,0 +1,75 @@
+---
+- connection: local
+  hosts: 127.0.0.1
+  tasks:
+    - name: "Install PHP"
+      homebrew:
+        name: homebrew/php/php71
+        state: present
+    - name: "Install homebrew packages"
+      homebrew:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "ansible"
+        - "git"
+        - "go"
+        - "homebrew/php/composer"
+        - "homebrew/php/php-code-sniffer"
+        - "homebrew/php/php71-snmp"
+        - "homebrew/php/php71-xdebug"
+        - "homebrew/php/phpunit"
+        - "htop"
+        - "kubernetes-cli"
+        - "mariadb"
+        - "mas"
+        - "npm"
+        - "postgresql"
+        - "python"
+        - "python3"
+        - "screenresolution"
+        - "watch"
+        - "zsh"
+    - name: "Install fonts homebrew tap"
+      homebrew_tap:
+        name: "caskroom/fonts"
+    - name: "Install homebrew casks"
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "atom" # text editor
+        - "flux" # color temperature modification
+        - "font-hack" # font for terminal
+        - "hyperdock" # window management with chording support
+        - "iterm2" # better terminal
+        - "magicprefs" # middle click via trackpad
+        - "postman" # gui for web requests
+        - "powershell" # powershell cli
+        - "steermouse" # mouse button mapping
+        - "visual-studio-code" # ide
+      ignore_errors: yes
+    - name: "Install pip packages"
+      pip:
+        executable: pip3
+        name: "{{ item }}"
+      with_items:
+        - "mkdocs"
+        - "mkdocs-material"
+        - "pygments"
+        - "pymdown-extensions"
+    - name: "Install App Store applications"
+      shell:
+        cmd: "mas install {{ item }}"
+      with_items:
+        - 918858936 # airmail
+        - 411643860 # daisy disk
+        - 552383089 # dashlane
+        - 587512244 # kaleidoscope
+        - 465965038 # markdown pro
+        - 715768417 # microsoft remote desktop
+        - 498370702 # regex rx
+        - 803453959 # slack
+        - 960276676 # taurine
+        - 497799835 # xcode
+...
