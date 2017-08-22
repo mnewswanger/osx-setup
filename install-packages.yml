@@ -43,6 +43,7 @@
         - "font-hack" # font for terminal
         - "hyperdock" # window management with chording support
         - "iterm2" # better terminal
+        - "keeweb" # macos keepass client
         - "magicprefs" # middle click via trackpad
         - "postman" # gui for web requests
         - "powershell" # powershell cli
