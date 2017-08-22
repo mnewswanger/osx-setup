@@ -73,4 +73,10 @@
         - 803453959 # slack
         - 960276676 # taurine
         - 497799835 # xcode
+    - name: "Install npm packages"
+      shell:
+        cmd: "npm i -g {{ item }}"
+      with_items:
+        - "typescript"
+        - "webpack"
 ...
