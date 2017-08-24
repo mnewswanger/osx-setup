@@ -39,6 +39,7 @@
         state: present
       with_items:
         - "atom" # text editor
+        - "docker-edge" # docker daemon (monthly builds)
         - "flux" # color temperature modification
         - "font-hack" # font for terminal
         - "hyperdock" # window management with chording support
@@ -65,7 +66,6 @@
       with_items:
         - 918858936 # airmail
         - 411643860 # daisy disk
-        - 552383089 # dashlane
         - 587512244 # kaleidoscope
         - 465965038 # markdown pro
         - 715768417 # microsoft remote desktop
