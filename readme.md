@@ -20,3 +20,7 @@ Log in with your Apple ID.  This should be completed at first boot.  This is req
 
 * Install go plugin & dependencies for VS Code
 
+### Updates ###
+
+After everything has been installed with the `setup.sh` script, updates can be run with `update.sh`.  This will update any managed packages in `homebrew` and the App Store.
+
