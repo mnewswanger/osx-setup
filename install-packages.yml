@@ -14,11 +14,6 @@
         - "ansible"
         - "git"
         - "go"
-        - "homebrew/php/composer"
-        - "homebrew/php/php-code-sniffer"
-        - "homebrew/php/php71-snmp"
-        - "homebrew/php/php71-xdebug"
-        - "homebrew/php/phpunit"
         - "htop"
         - "kubernetes-cli"
         - "mariadb"
@@ -50,6 +45,7 @@
         - "powershell" # powershell cli
         - "steermouse" # mouse button mapping
         - "visual-studio-code" # ide
+        - "wireshark" # network tracing
       ignore_errors: yes
     - name: "Install pip packages"
       pip:
@@ -73,6 +69,7 @@
         - 803453959 # slack
         - 960276676 # taurine
         - 497799835 # xcode
+      ignore_errors: yes
     - name: "Install npm packages"
       shell:
         cmd: "npm i -g {{ item }}"
