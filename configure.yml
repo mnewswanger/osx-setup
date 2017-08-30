@@ -14,10 +14,6 @@
       copy:
         src: "zshrc"
         dest: "~/.zshrc"
-    - name: "Set up SSH config"
-      copy:
-        src: "ssh-config"
-        dest: "~/.ssh/config"
     - name: "Set up Git config"
       copy:
         src: "git-config"
