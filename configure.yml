@@ -14,10 +14,6 @@
       copy:
         src: "zshrc"
         dest: "~/.zshrc"
-    - name: "Set up Git config"
-      copy:
-        src: "git-config"
-        dest: "~/.gitconfig"
     - name: "Set up Git global ignores"
       copy:
         src: "global-gitignore"

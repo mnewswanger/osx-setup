@@ -1,5 +1,0 @@
-[user]
-	name = Mike Newswanger
-	email = mnewswanger@stackoverflow.com
-[core]
-	excludesfile = ~/.gitignore
