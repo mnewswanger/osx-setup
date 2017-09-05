@@ -14,6 +14,7 @@
         - "ansible"
         - "git"
         - "go"
+        - "gpg"
         - "htop"
         - "kubernetes-cli"
         - "mariadb"
