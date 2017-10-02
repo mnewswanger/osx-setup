@@ -34,8 +34,10 @@
         name: "{{ item }}"
         state: present
       with_items:
+        - "1password" # password manager
         - "atom" # text editor
         - "docker-edge" # docker daemon (monthly builds)
+        - "dropbox" # dropbox
         - "flux" # color temperature modification
         - "font-hack" # font for terminal
         - "hyperdock" # window management with chording support
