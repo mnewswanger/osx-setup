@@ -4,8 +4,6 @@
 
 ### Caveats ###
 
-After Oh-My-ZSH initial installation, it launches zsh; type exit to return to the running script.
-
 App Store applications will only re-install.  If you haven't purchased them (most are free) from the App Store.  This is tied to your Apple ID, so once it's purchased on your account, it'll work on any machines.
 
 ### Pre-Requisites ###
@@ -23,4 +21,3 @@ Log in with your Apple ID.  This should be completed at first boot.  This is req
 ### Updates ###
 
 After everything has been installed with the `setup.sh` script, updates can be run with `update.sh`.  This will update any managed packages in `homebrew` and the App Store.
-
