@@ -47,6 +47,7 @@
         - "postman" # gui for web requests
         - "powershell" # powershell cli
         - "steermouse" # mouse button mapping
+        - "sublime-text" # sublime text
         - "visual-studio-code" # ide
         - "wireshark" # network tracing
       ignore_errors: yes

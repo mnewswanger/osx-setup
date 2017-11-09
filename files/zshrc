@@ -83,7 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias atom="open -a /Applications/Atom.app/"
+alias atom="open -a '/Applications/Atom.app/'"
+alias sublime="open -a '/Applications/Sublime Text.app/'"
 
 export EDITOR=/usr/bin/vim
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
