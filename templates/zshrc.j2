@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mike/.oh-my-zsh
+export ZSH=/Users/{{ running_user }}/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,8 +53,8 @@ plugins=(docker git golang kubectl postgres)
 
 # User configuration
 
-export GOPATH="/Users/mike/go"
-export PATH="/Users/mike/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:~/.composer/vendor/bin"
+export GOPATH="/Users/{{ running_user }}/go"
+export PATH="/Users/{{ running_user }}/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$GOPATH/bin:~/.composer/vendor/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

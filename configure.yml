@@ -2,6 +2,12 @@
 - connection: local
   hosts: 127.0.0.1
   tasks:
+    - name: Get the username running the deploy
+      local_action: command whoami
+      register: running_user_cmd
+    - name: Set username fact
+      set_fact:
+        running_user: "{{ running_user_cmd.stdout }}"
     - name: "Create ~/bin/"
       file:
         name: "~/bin/"
@@ -11,8 +17,8 @@
         dest: ~/.iterm2_shell_integration.zsh
         url: https://iterm2.com/misc/zsh_startup.in
     - name: "Set up .zshrc"
-      copy:
-        src: "zshrc"
+      template:
+        src: "zshrc.j2"
         dest: "~/.zshrc"
     - name: "Set up Git global ignores"
       copy:
@@ -23,15 +29,6 @@
         src: "scripts/flush-dns-cache.sh"
         dest: "~/bin/flush-dns-cache"
         mode: 0755
-    - name: "Set up backup script"
-      copy:
-        src: "scripts/home_dir_backup.sh"
-        dest: "~/home_dir_backup.sh"
-        mode: 0755
-    - name: "Set up backup job"
-      copy:
-        src: "backup.plist"
-        dest: "~/Library/LaunchAgents/com.mikenewswanger.mn-macbook-pro.backup.plist"
     - name: "Copy iTerm Colors"
       copy:
         src: "default.itermcolors"
