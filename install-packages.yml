@@ -64,12 +64,7 @@
       shell:
         cmd: "mas install {{ item }}"
       with_items:
-        - 918858936 # airmail
-        - 411643860 # daisy disk
-        - 587512244 # kaleidoscope
-        - 465965038 # markdown pro
         - 715768417 # microsoft remote desktop
-        - 498370702 # regex rx
         - 803453959 # slack
         - 960276676 # taurine
         - 497799835 # xcode
