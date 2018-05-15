@@ -1,24 +1,30 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/"
+
+cd "${DIR}" && git pull
+
 echo "Installing Oh-My-Zsh..."
-./files/setup/oh-my-zsh-setup.sh
+"${DIR}"/setup/files/setup/oh-my-zsh-setup.sh
 
 echo "Installing Homebrew..."
 if ! homebrew_bin="$(type -p "brew")" || [ -z "$homebrew_bin" ]; then
     echo "Installing Homebrew"
-    /usr/bin/ruby ./files/setup/homebrew-setup.rb
+    /usr/bin/ruby "${DIR}"/files/setup/homebrew-setup.rb
 else
     echo "Homebrew already installed... skipping"
 fi
 
-echo "Installing Ansible..."
-brew install ansible
+if ! ansible_bin="$(type -p "ansible")" || [ -z "$ansible_bin" ]; then
+    echo "Installing Ansible..."
+    brew install ansible
+fi
 
 echo "Installing base packages..."
-ansible-playbook install-packages.yml
+ansible-playbook "${DIR}"/setup/install-packages.yml
 
 echo "Configuring system..."
-ansible-playbook configure.yml
+ansible-playbook "${DIR}"/setup/configure.yml
 
 if [ -z $GOPATH ]
 then

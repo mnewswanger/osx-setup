@@ -6,4 +6,3 @@ brew upgrade
 
 echo "=== UPDATING APP STORE APPLICATIONS ==="
 mas upgrade
-

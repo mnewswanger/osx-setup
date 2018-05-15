@@ -1,0 +1,63 @@
+---
+- connection: local
+  hosts: 127.0.0.1
+  tasks:
+    - name: "Install homebrew packages"
+      homebrew:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "git"
+        - "go"
+        - "htop"
+        - "hugo"
+        - "kubectx"
+        - "kubernetes-cli"
+        - "mas"
+        - "screenresolution"
+        - "watch"
+    - name: "Install fonts homebrew tap"
+      homebrew_tap:
+        name: "caskroom/fonts"
+    - name: "Install homebrew casks"
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "doxie"
+        - "flux"
+        - "font-hack"
+        - "postman"
+        - "powershell"
+        - "sublime-text"
+        - "visual-studio-code"
+      ignore_errors: yes
+    - name: "Install App Store applications"
+      shell:
+        cmd: "mas install {{ item }}"
+      with_items:
+        - 918858936  # airmail
+        - 411643860  # daisy disk
+        - 552383089  # dashlane
+        - 524141863  # jump desktop
+        - 587512244  # kaleidoscope
+        - 409183694  # keynote
+        - 405399194  # kindle
+        - 465965038  # markdown pro
+        - 969978718  # noiseless
+        - 409203825  # numbers
+        - 711830901  # omnigraffle
+        - 1040002810 # omniplan
+        - 409201541  # pages
+        - 407963104  # pixelmator
+        - 498370702  # regex rx
+        - 803453959  # slack
+        - 960276676  # taurine
+        - 403388562  # transmit
+        - 497799835  # xcode
+      ignore_errors: yes
+    - name: "Install xcode tools for delve"
+      shell:
+        cmd: "xcode-select --install"
+      ignore_errors: yes
+...

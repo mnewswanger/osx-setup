@@ -16,10 +16,26 @@
       get_url:
         dest: ~/.iterm2_shell_integration.zsh
         url: https://iterm2.com/misc/zsh_startup.in
+    - name: "Copy iTerm Colors"
+      copy:
+        src: "default.itermcolors"
+        dest: "~/default.itermcolors"
+    - name: "Copy iTerm Settings"
+      copy:
+        src: "com.googlecode.iterm2.plist"
+        dest: "~/com.googlecode.iterm2.plist"
     - name: "Set up .zshrc"
       template:
         src: "zshrc.j2"
         dest: "~/.zshrc"
+    - name: "Set up SSH config"
+      copy:
+        src: "ssh-config"
+        dest: "~/.ssh/config"
+    - name: "Set up Git config"
+      copy:
+        src: "git-config"
+        dest: "~/.gitconfig"
     - name: "Set up Git global ignores"
       copy:
         src: "global-gitignore"
@@ -29,10 +45,15 @@
         src: "scripts/flush-dns-cache.sh"
         dest: "~/bin/flush-dns-cache"
         mode: 0755
-    - name: "Copy iTerm Colors"
+    - name: "Set up backup script"
       copy:
-        src: "default.itermcolors"
-        dest: "~/default.itermcolors"
+        src: "scripts/home_dir_backup.sh"
+        dest: "~/home_dir_backup.sh"
+        mode: 0755
+    - name: "Set up backup job"
+      copy:
+        src: "backup.plist"
+        dest: "~/Library/LaunchAgents/com.mikenewswanger.backup.plist"
     - name: Set up Visual Studio Code Settings
       copy:
         src: "vscode/settings.json"

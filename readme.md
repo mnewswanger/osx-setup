@@ -12,7 +12,7 @@ Log in with your Apple ID.  This should be completed at first boot.  This is req
 
 ### Initialization ###
 
-* Clone or download the repository and run `setup.sh`.  It will prompt for your password at a few points when elevated permissions are necessary for installs.
+* Clone or download the repository and run `configure.sh`.  It will prompt for your password at a few points when elevated permissions are necessary for installs.
 
 ### Manual Steps ###
 
@@ -20,4 +20,4 @@ Log in with your Apple ID.  This should be completed at first boot.  This is req
 
 ### Updates ###
 
-After everything has been installed with the `setup.sh` script, updates can be run with `update.sh`.  This will update any managed packages in `homebrew` and the App Store.
+After everything has been installed with the `configure.sh` script, updates can be run with `update.sh`.  This will update any managed packages in `homebrew` and the App Store.

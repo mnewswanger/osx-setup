@@ -1,0 +1,145 @@
+---
+- connection: local
+  hosts: 127.0.0.1
+  tasks:
+
+  # Golang Namespace
+
+  - name: Check out Executil Utility repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:golang/executil.git'
+      dest: $GOPATH/src/go.mikenewswanger.com/utilities/executil
+    ignore_errors: yes
+  - name: Add github upstream
+    blockinfile:
+      path: $GOPATH/src/go.mikenewswanger.com/utilities/executil/.git/config
+      block: |
+        [remote "github"]
+            url = git@github.com:mnewswanger/executil.git
+
+  - name: Check out Filesystem Utility repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:golang/filesystem.git'
+      dest: $GOPATH/src/go.mikenewswanger.com/utilities/filesystem
+    ignore_errors: yes
+  - name: Add github upstream
+    blockinfile:
+      path: $GOPATH/src/go.mikenewswanger.com/utilities/filesystem/.git/config
+      block: |
+        [remote "github"]
+            url = git@github.com:mnewswanger/filesystem.git
+
+  - name: Check out Slices Utility repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:golang/slices.git'
+      dest: $GOPATH/src/go.mikenewswanger.com/utilities/slices
+    ignore_errors: yes
+  - name: Add github upstream
+    blockinfile:
+      path: $GOPATH/src/go.mikenewswanger.com/utilities/slices/.git/config
+      block: |
+        [remote "github"]
+            url = git@github.com:mnewswanger/slices.git
+
+  # Infrastructure Namespace
+
+  - name: Check out Ansible Playbooks repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/ansible.git'
+      dest: ~/Documents/projects/ansible
+    ignore_errors: yes
+
+  - name: Check out Docker Build Files repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/docker.git'
+      dest: ~/Documents/projects/docker-build-files
+    ignore_errors: yes
+
+  - name: Check out Container Factory repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/container-factory.git'
+      dest: $GOPATH/src/go.mikenewswanger.com/container-factory
+    ignore_errors: yes
+  - name: Add github upstream
+    blockinfile:
+      path: $GOPATH/src/go.mikenewswanger.com/container-factory/.git/config
+      block: |
+        [remote "github"]
+            url = git@github.com:mnewswanger/container-factory.git
+
+  - name: Check out Docker Registry UI repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/docker-registry-ui.git'
+      dest: ~/Documents/projects/docker-registry-ui
+    ignore_errors: yes
+  - name: Add github upstream
+    blockinfile:
+      path: ~/Documents/projects/docker-registry-ui/.git/config
+      block: |
+        [remote "github"]
+            url = git@github.com:mnewswanger/docker-registry-ui.git
+
+  - name: Check out Infrastructure Documentation repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/documentation.git'
+      dest: ~/Documents/projects/infrastructure-documentation
+    ignore_errors: yes
+
+  - name: Check out Kubernetes Objects repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/kubernetes.git'
+      dest: ~/Documents/projects/kubernetes-objects
+    ignore_errors: yes
+
+  - name: Check out Kubesolidator repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/kubesolidator.git'
+      dest: $GOPATH/src/go.mikenewswanger.com/kubesolidator
+    ignore_errors: yes
+
+  - name: Check out Kube CI repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:infrastructure/kube-ci.git'
+      dest: $GOPATH/src/go.mikenewswanger.com/kube-ci
+    ignore_errors: yes
+  - name: Set up Kube CI alias from projects folder
+    file:
+      src: $GOPATH/src/go.mikenewswanger.com/kube-ci
+      dest: ~/Documents/projects/kube-ci
+      state: link
+  - name: Add github upstream
+    blockinfile:
+      path: ~/Documents/projects/kube-ci/.git/config
+      block: |
+        [remote "github"]
+            url = git@github.com:mnewswanger/kube-ci.git
+
+  - name: Check out Haproxy Kubefigurator repo
+    git:
+      repo: 'git@github.com:stackexchange/haproxy-kubefigurator.git'
+      dest: $GOPATH/src/github.com/stackexchange/haproxy-kubefigurator
+    ignore_errors: yes
+
+  # Internal Sites Namespace
+
+  - name: Check out Finances repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:internal-sites/finances.git'
+      dest: $GOPATH/src/go.mikenewswanger.com/finances
+    ignore_errors: yes
+
+  - name: Set up Finances alias from projects folder
+    file:
+      src: $GOPATH/src/go.mikenewswanger.com/finances
+      dest: ~/Documents/projects/finances
+      state: link
+
+  # Public Sites Namespace
+
+  - name: Check out www.mikenewswanger.com repo
+    git:
+      repo: 'git@gitlab.home.mikenewswanger.com:public-sites/www-mikenewswanger-com.git'
+      dest: ~/Documents/projects/www.mikenewswanger.com
+    ignore_errors: yes
+
+...
