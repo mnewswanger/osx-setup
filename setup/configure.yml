@@ -8,10 +8,13 @@
     - name: Set username fact
       set_fact:
         running_user: "{{ running_user_cmd.stdout }}"
-    - name: "Create ~/bin/"
+    - name: "Create base directories"
       file:
-        name: "~/bin/"
+        name: "{{ item }}"
         state: directory
+      with_items:
+        - "~/bin/"
+        - "~/.ssh/"
     - name: "Set up iTerm shell integrations"
       get_url:
         dest: ~/.iterm2_shell_integration.zsh
@@ -50,10 +53,10 @@
         src: "scripts/home_dir_backup.sh"
         dest: "~/home_dir_backup.sh"
         mode: 0755
-    - name: "Set up backup job"
-      copy:
-        src: "backup.plist"
-        dest: "~/Library/LaunchAgents/com.mikenewswanger.backup.plist"
+#    - name: "Set up backup job"
+#      copy:
+#        src: "backup.plist"
+#        dest: "~/Library/LaunchAgents/com.mikenewswanger.backup.plist"
     - name: Set up Visual Studio Code Settings
       copy:
         src: "vscode/settings.json"

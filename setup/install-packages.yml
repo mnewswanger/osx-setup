@@ -2,20 +2,23 @@
 - connection: local
   hosts: 127.0.0.1
   tasks:
+    - name: "Set is_elastic_machine"
+      set_fact:
+        is_elastic_machine: "{{ elastic | default(false) }}"
     - name: "Install homebrew packages"
       homebrew:
         name: "{{ item }}"
         state: present
       with_items:
-        - "git"
-        - "go"
-        - "htop"
-        - "hugo"
-        - "kubectx"
-        - "kubernetes-cli"
-        - "mas"
-        - "screenresolution"
-        - "watch"
+        - git
+        - go
+        - htop
+        - hugo
+        - kubectx
+        - kubernetes-cli
+        - mas
+        - screenresolution
+        - watch
     - name: "Install fonts homebrew tap"
       homebrew_tap:
         name: "caskroom/fonts"
@@ -24,14 +27,29 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - "doxie"
-        - "flux"
-        - "font-hack"
-        - "postman"
-        - "powershell"
-        - "sublime-text"
-        - "visual-studio-code"
+        - caskroom/versions/docker-edge
+        - doxie
+        - flux
+        - font-hack
+        - google-chrome
+        - iterm2
+        - magicprefs
+        - postman
+        - powershell
+        - spectacle
+        - spotify
+        - sublime-text
+        - visual-studio-code
       ignore_errors: yes
+    - name: "Install Elastic packages"
+      homebrew:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - jq
+        - terraform
+      when:
+        - is_elastic_machine
     - name: "Install App Store applications"
       shell:
         cmd: "mas install {{ item }}"

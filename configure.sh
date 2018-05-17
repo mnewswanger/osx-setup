@@ -1,8 +1,14 @@
 #!/bin/bash
 
+set -e
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/"
 
-cd "${DIR}" && git pull
+ELASTIC=""
+
+if [ "$1" == "--elastic" ]; then
+  ELASTIC=" --extra-vars elastic=yes"
+fi
 
 echo "Installing Oh-My-Zsh..."
 "${DIR}"/setup/files/setup/oh-my-zsh-setup.sh
@@ -10,7 +16,7 @@ echo "Installing Oh-My-Zsh..."
 echo "Installing Homebrew..."
 if ! homebrew_bin="$(type -p "brew")" || [ -z "$homebrew_bin" ]; then
     echo "Installing Homebrew"
-    /usr/bin/ruby "${DIR}"/files/setup/homebrew-setup.rb
+    /usr/bin/ruby "${DIR}"/setup/files/setup/homebrew-setup.rb
 else
     echo "Homebrew already installed... skipping"
 fi
@@ -21,10 +27,10 @@ if ! ansible_bin="$(type -p "ansible")" || [ -z "$ansible_bin" ]; then
 fi
 
 echo "Installing base packages..."
-ansible-playbook "${DIR}"/setup/install-packages.yml
+ansible-playbook "${DIR}"/setup/install-packages.yml ${ELASTIC}
 
 echo "Configuring system..."
-ansible-playbook "${DIR}"/setup/configure.yml
+ansible-playbook "${DIR}"/setup/configure.yml ${ELASTIC}
 
 if [ -z $GOPATH ]
 then
