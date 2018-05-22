@@ -46,8 +46,34 @@
         name: "{{ item }}"
         state: present
       with_items:
+        - awscli
         - jq
+        - packer
+        - pwgen
         - terraform
+      when:
+        - is_elastic_machine
+    - name: "Install Elastic casks"
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - intellij-idea
+        - java
+        - keybase
+        - pritunl
+        - vagrant
+        - virtualbox
+        - virtualbox-extension-pack
+      when:
+        - is_elastic_machine
+    - name: "Install Elastic packages"
+      homebrew:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - sbt
+        - scala
       when:
         - is_elastic_machine
     - name: "Install App Store applications"
