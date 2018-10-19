@@ -125,14 +125,8 @@
   - name: Check out Finances repo
     git:
       repo: 'git@gitlab.home.mikenewswanger.com:internal-sites/finances.git'
-      dest: $GOPATH/src/go.mikenewswanger.com/finances
-    ignore_errors: yes
-
-  - name: Set up Finances alias from projects folder
-    file:
-      src: $GOPATH/src/go.mikenewswanger.com/finances
       dest: ~/Documents/projects/finances
-      state: link
+    ignore_errors: yes
 
   # Public Sites Namespace
 
