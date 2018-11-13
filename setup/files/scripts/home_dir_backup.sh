@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport -I | grep mn-wifi)" ]; then
+if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport -I | grep MDNetwork)" ]; then
     rsync -azv --delete \
         --exclude '/.Trash' \
         --exclude '/Library' \
@@ -7,7 +7,7 @@ if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curre
         --exclude '/Documents/Virtual Machines.localized' \
         --exclude "/Pictures/Photos Library.photoslibrary/" \
         --timeout=15 \
-        ~/ "mike@backups.home.mikenewswanger.com:/mnt/backups/computers/$(hostname)/$(whoami)/"
+        ~/ "$(whoami)-backups@192.168.81.18:/mnt/backups/computers/$(hostname)/$(whoami)/"
 else
   echo "Connected to mobile hotspot"
   exit 1
