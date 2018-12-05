@@ -7,64 +7,60 @@
         is_elastic_machine: "{{ elastic | default(false) }}"
     - name: "Install homebrew packages"
       homebrew:
-        name: "{{ item }}"
         state: present
-      with_items:
-        - git
-        - go
-        - htop
-        - hugo
-        - kubectx
-        - kubernetes-cli
-        - mas
-        - screenresolution
-        - watch
+        name:
+          - git
+          - go
+          - htop
+          - hugo
+          - kubectx
+          - kubernetes-cli
+          - mas
+          - screenresolution
+          - watch
     - name: "Install fonts homebrew tap"
       homebrew_tap:
         name: "caskroom/fonts"
     - name: "Install homebrew casks"
       homebrew_cask:
-        name: "{{ item }}"
         state: present
-      with_items:
-        - caskroom/versions/docker-edge
-        - doxie
-        - flux
-        - font-hack
-        - google-chrome
-        - iterm2
-        - magicprefs
-        - postman
-        - powershell
-        - spectacle
-        - spotify
-        - sublime-text
-        - visual-studio-code
+        name: 
+          - caskroom/versions/docker-edge
+          - doxie
+          - flux
+          - font-hack
+          - google-chrome
+          - iterm2
+          - magicprefs
+          - postman
+          - powershell
+          - spectacle
+          - spotify
+          - sublime-text
+          - visual-studio-code
       ignore_errors: yes
     - name: "Install Elastic packages"
       homebrew:
-        name: "{{ item }}"
         state: present
-      with_items:
-        - awscli
-        - jq
-        - packer
-        - pwgen
-        - terraform
+        name: 
+          - awscli
+          - jq
+          - packer
+          - pwgen
+          - terraform
       when:
         - is_elastic_machine
     - name: "Install Elastic casks"
       homebrew_cask:
-        name: "{{ item }}"
         state: present
-      with_items:
-        - intellij-idea
-        - java
-        - keybase
-        - pritunl
-        - vagrant
-        - virtualbox
-        - virtualbox-extension-pack
+        name:
+          - intellij-idea
+          - java
+          - keybase
+          - pritunl
+          - vagrant
+          - virtualbox
+          - virtualbox-extension-pack
       when:
         - is_elastic_machine
     - name: "Install Elastic packages"

@@ -1,6 +1,8 @@
 #!/bin/bash
 if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport -I | grep MDNetwork)" ]; then
-    rsync -azv --delete \
+    rsync -azv \
+        --no-p --no-g --chmod=ugo=rwX \
+        --delete \
         --exclude '/.Trash' \
         --exclude '/Library' \
         --exclude '/Music/iTunes/iTunes Media/Apple Music' \
