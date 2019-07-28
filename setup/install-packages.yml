@@ -2,9 +2,6 @@
 - connection: local
   hosts: 127.0.0.1
   tasks:
-    - name: "Set is_elastic_machine"
-      set_fact:
-        is_elastic_machine: "{{ elastic | default(false) }}"
     - name: "Install homebrew packages"
       homebrew:
         state: present
@@ -24,7 +21,7 @@
     - name: "Install homebrew casks"
       homebrew_cask:
         state: present
-        name: 
+        name:
           - caskroom/versions/docker-edge
           - doxie
           - flux
@@ -39,46 +36,15 @@
           - sublime-text
           - visual-studio-code
       ignore_errors: yes
-    - name: "Install Elastic packages"
-      homebrew:
-        state: present
-        name: 
-          - awscli
-          - jq
-          - packer
-          - pwgen
-          - terraform
-      when:
-        - is_elastic_machine
-    - name: "Install Elastic casks"
-      homebrew_cask:
-        state: present
-        name:
-          - intellij-idea
-          - java
-          - keybase
-          - pritunl
-          - vagrant
-          - virtualbox
-          - virtualbox-extension-pack
-      when:
-        - is_elastic_machine
-    - name: "Install Elastic packages"
-      homebrew:
-        name: "{{ item }}"
-        state: present
-      with_items:
-        - sbt
-        - scala
-      when:
-        - is_elastic_machine
     - name: "Install App Store applications"
       shell:
         cmd: "mas install {{ item }}"
       with_items:
         - 918858936  # airmail
+        - 611658502  # boxy svg
         - 411643860  # daisy disk
         - 552383089  # dashlane
+        - 1127253508 # dr unarchiver
         - 524141863  # jump desktop
         - 587512244  # kaleidoscope
         - 409183694  # keynote
@@ -89,9 +55,10 @@
         - 711830901  # omnigraffle
         - 1040002810 # omniplan
         - 409201541  # pages
-        - 407963104  # pixelmator
+        - 1289583905 # pixelmator pro
         - 498370702  # regex rx
         - 803453959  # slack
+        - 1058362543 # swift publisher
         - 960276676  # taurine
         - 403388562  # transmit
         - 497799835  # xcode
