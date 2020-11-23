@@ -43,7 +43,6 @@
       shell:
         cmd: "mas install {{ item }}"
       with_items:
-        - 918858936  # airmail
         - 611658502  # boxy svg
         - 411643860  # daisy disk
         - 552383089  # dashlane
@@ -61,6 +60,7 @@
         - 1289583905 # pixelmator pro
         - 498370702  # regex rx
         - 803453959  # slack
+        - 1176895641 # spark
         - 1058362543 # swift publisher
         - 960276676  # taurine
         - 403388562  # transmit
