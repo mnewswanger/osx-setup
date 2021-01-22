@@ -6,6 +6,7 @@ if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curre
         --exclude '/.Trash' \
         --exclude '/Library' \
         --exclude '/Music/iTunes/iTunes Media/Apple Music' \
+        --exclude '/Paralels' \
         --exclude '/Documents/Virtual Machines.localized' \
         --exclude "/Pictures/Photos Library.photoslibrary/" \
         --timeout=15 \

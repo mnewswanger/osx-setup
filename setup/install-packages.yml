@@ -18,26 +18,25 @@
           - watch
     - name: "Install fonts homebrew tap"
       homebrew_tap:
-        name: "caskroom/fonts"
+        name: "homebrew/cask-fonts"
     - name: "Install homebrew casks"
       homebrew_cask:
         state: present
         name:
           - backblaze
-          - caskroom/versions/docker-edge
+          - bettertouchtool
           - doxie
           - flux
           - font-hack
           - goland
           - google-chrome
           - iterm2
-          - magicprefs
           - postman
-          - powershell
           - spectacle
           - spotify
           - sublime-text
           - visual-studio-code
+          - zoom
       ignore_errors: yes
     - name: "Install App Store applications"
       shell:

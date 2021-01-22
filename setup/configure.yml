@@ -53,10 +53,6 @@
         src: "scripts/home_dir_backup.sh"
         dest: "~/home_dir_backup.sh"
         mode: 0755
-#    - name: "Set up backup job"
-#      copy:
-#        src: "backup.plist"
-#        dest: "~/Library/LaunchAgents/com.mikenewswanger.backup.plist"
     - name: Set up Visual Studio Code Settings
       copy:
         src: "vscode/settings.json"

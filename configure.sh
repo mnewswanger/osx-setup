@@ -3,6 +3,7 @@
 set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/"
+USER="$(whoami)"
 
 ELASTIC=""
 
@@ -16,7 +17,9 @@ echo "Installing Oh-My-Zsh..."
 echo "Installing Homebrew..."
 if ! homebrew_bin="$(type -p "brew")" || [ -z "$homebrew_bin" ]; then
     echo "Installing Homebrew"
-    /usr/bin/ruby "${DIR}"/setup/files/setup/homebrew-setup.rb
+    "${DIR}"/setup/files/setup/homebrew-setup.sh
+    echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> "/Users/$USER/.zprofile"
+    eval $(/opt/homebrew/bin/brew shellenv)
 else
     echo "Homebrew already installed... skipping"
 fi

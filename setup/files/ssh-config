@@ -1,13 +1,3 @@
-Host *.home.mikenewswanger.com
-  ForwardAgent yes
-
-Host www.mikenewswanger.com
-  User root
-
 Host www.cindyfreyphotography.com
   Port 9022
-
-Host switch01.home.mikenewswanger.com
-  User admin
-  Ciphers 3des-cbc
 
