@@ -42,11 +42,16 @@
       shell:
         cmd: "mas install {{ item }}"
       with_items:
+        - 1365531024 # 1blocker
+        - 824171161  # affinity designer
+        - 824183456  # affinity photo
+        - 881418622  # affinity publisher
         - 611658502  # boxy svg
         - 411643860  # daisy disk
         - 1505779553 # dashlane for safari
         - 1127253508 # dr unarchiver
         - 524141863  # jump desktop
+        - 1124615151 # home inventory
         - 587512244  # kaleidoscope
         - 409183694  # keynote
         - 405399194  # kindle
@@ -62,6 +67,7 @@
         - 1176895641 # spark
         - 1058362543 # swift publisher
         - 960276676  # taurine
+        - 904280696  # things
         - 403388562  # transmit
         - 497799835  # xcode
       ignore_errors: yes
