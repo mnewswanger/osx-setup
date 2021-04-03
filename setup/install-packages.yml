@@ -23,11 +23,11 @@
       homebrew_cask:
         state: present
         name:
+          # apps
           - backblaze
           - bettertouchtool
           - doxie
           - flux
-          - font-hack
           - goland
           - google-chrome
           - iterm2
@@ -37,6 +37,9 @@
           - sublime-text
           - visual-studio-code
           - zoom
+          # fonts
+          - font-hack
+          - font-meslo-lg-nerd-font
       ignore_errors: yes
     - name: "Install App Store applications"
       shell:
