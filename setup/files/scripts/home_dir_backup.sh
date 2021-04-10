@@ -40,7 +40,7 @@ if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curre
         --exclude '/Parallels' \
         --exclude "/Pictures/Photos Library.photoslibrary/" \
         --timeout=15 \
-        ~/ "$(whoami)-backups@192.168.92.252:/Volumes/t7/backups/computers/$(hostname)/$(whoami)/"
+        ~/ "$(whoami)-backups@backups.home.mikenewswanger.com:/Volumes/t7/backups/computers/$(hostname)/$(whoami)/"
 else
   echo "Connected to mobile hotspot"
   exit 1
