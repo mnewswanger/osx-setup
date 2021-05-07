@@ -6,6 +6,7 @@ if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curre
         --no-p --no-g --chmod=ugo=rwX \
         --delete \
         --exclude '/.Trash' \
+        --exclude '/Library/Assistant' \
         --exclude '/Library/Autosave Information' \
         --exclude '/Library/IdentityServices' \
         --exclude '/Library/Messages' \
@@ -25,6 +26,7 @@ if [ -z "$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Curre
         --exclude '/Library/Containers/com.apple.Notes' \
         --exclude '/Library/Containers/com.apple.news' \
         --exclude '/Library/Containers/com.apple.stocks' \
+        --exclude '/Library/Containers/com.apple.corerecents.recentsd/Data/Library/Recents' \
         --exclude '/Library/Containers/com.docker.docker/Data/vms' \
         --exclude '/Library/PersonalizationPortrait' \
         --exclude '/Library/Preferences/com.apple.homed.notbackedup.plist' \
